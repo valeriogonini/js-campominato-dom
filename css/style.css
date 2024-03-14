@@ -80,3 +80,6 @@ select{
     grid-template-columns: repeat(7,1fr);
    
 }
+.bg-red{
+    background-color: red;
+}
