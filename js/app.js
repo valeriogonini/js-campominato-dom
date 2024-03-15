@@ -16,8 +16,42 @@ console.log(CellGrid, ButtonPlay);
 
 
 ButtonPlay.addEventListener("click", function () {
+    
+
+
+    const Select = document.getElementById("difficolta")
+
+    let size;
+    let max ;
+
+    CellGrid.innerHTML = ""
+
+
+    if (Select.value === "difficolta1") {
+        size = 10
+        max = 100
+        CellGrid.classList.add("easy")
+        CellGrid.classList.remove("medium", "hard")
+
+    } else if (Select.value === "difficolta2") {
+        size = 9
+        max = 81
+        CellGrid.classList.add("medium")
+        CellGrid.classList.remove("easy", "hard")
+
+
+    } else {
+        size = 7
+        max = 49
+        CellGrid.classList.add("hard")
+        CellGrid.classList.remove("medium", "easy")
+
+
+    }
+
+    const NumCell = size * size
+
     const min = 1
-    let max = 100
     const NumberRandom = 16
 
     const arrayBomb = []
@@ -33,36 +67,6 @@ ButtonPlay.addEventListener("click", function () {
 
     }
     console.log(arrayBomb);
-
-
-    const Select = document.getElementById("difficolta")
-
-    let size;
-
-    CellGrid.innerHTML = ""
-
-
-    if (Select.value === "difficolta1") {
-        size = 10
-        
-        CellGrid.classList.add("easy")
-        CellGrid.classList.remove("medium", "hard")
-
-    } else if (Select.value === "difficolta2") {
-        size = 9
-        CellGrid.classList.add("medium")
-        CellGrid.classList.remove("easy", "hard")
-
-
-    } else {
-        size = 7
-        CellGrid.classList.add("hard")
-        CellGrid.classList.remove("medium", "easy")
-
-
-    }
-
-    const NumCell = size * size
 
     for (let i = 0; i < NumCell; i++) {
         // Ogni cella ha un numero progressivo, da 1 a 100.
@@ -86,11 +90,13 @@ ButtonPlay.addEventListener("click", function () {
 
             if (parseInt(cellElement.innerHTML) === CellBomb){
             cellElement.classList.add("bg-red")
+            console.log("Hai perso");
 
             }
-            }
-
             
+            }
+
+             
 
               
            
